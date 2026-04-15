@@ -24,6 +24,11 @@ class _ApiPageState extends State<ApiPage> {
     try {
       final response = await http.get(
         Uri.parse('https://jsonplaceholder.typicode.com/posts'),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'User-Agent': 'FlutterApp/1.0',
+        },
       );
       if (response.statusCode == 200) {
         setState(() {
